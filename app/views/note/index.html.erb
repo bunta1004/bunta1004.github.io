@@ -1,0 +1,30 @@
+<div id="main"class="container" style="text-align: center;">
+  <div class="header" style="margin-bottom: 30pt; margin-top: 20pt;">
+  <p><font size="7" color= "#5cb85c">shareble-memo</font></p>
+  </div>
+<p><font size="3" color= "#5cb85c">これはメモするためだけのサイトです。  なんでも簡単にメモすることができます。<br>
+    気軽にメモしてください。3時間経過すると保存した内容は削除されます。<br>
+    ※メモはみんなに公開されます。</font></p><br>
+
+
+  <%= form_tag(controller: "note", action: "index") do %>
+<p><font color= "#5cb85c">memo</font></p>
+<div><%= text_area("memo", '', class: "area", size: "65x15") %></div><br>
+<div class="name">name <%= text_field_tag("name", '', class: "namearea") %>　<%= submit_tag("保存") %></div>
+<% end %>
+</div>
+
+<table class="table table-bordered" style="table-layout:fixed;">
+  <tr>
+    <th style="width:70%;">memo</th>
+    <th style="width:10%">name</th>
+    <th style="width:20%">投稿日時</th>
+  </tr>
+  <% @dengon_data.each do |key,obj| %>
+  <tr>
+    <td class="memo"><%= obj['memo'] %></td>
+    <td class="name"><%= obj['name'] %></td>
+    <td class="time"><%= Time.at(key.to_i) %></td>
+  </tr>
+  <% end %>
+</table>

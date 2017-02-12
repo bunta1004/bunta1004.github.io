@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @smemo.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @smemo.title %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @smemo.memo %>
+</p>
+
+<%= link_to 'Edit', edit_smemo_path(@smemo) %> |
+<%= link_to 'Back', smemos_path %>
